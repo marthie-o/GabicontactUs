@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabi Interior Studio</title>
+  <style>
+    :root {
+      --primary: #FFD700;
+      --secondary: #1A1A1A;
+      --accent: #FFC000;
+      --text: #333333;
+      --light-bg: #F9F9F9;
+      --error: #E74C3C;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .contact-card {
+      width: 100%;
+      max-width: 950px;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .contact-info {
+      background: var(--primary);
+      padding: 30px;
+      color: var(--secondary);
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .tagline {
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .contact-details {
+      margin-top: 15px;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .design-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .design-gallery img {
+      width: 100%;
+      height: 120px;
+      border-radius: 6px;
+      border: 2px solid white;
+      object-fit: cover;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .contact-form {
+      padding: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* NEW VALIDATION STYLES */
+    .error-message {
+      color: var(--error);
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    input:invalid, textarea:invalid, select:invalid {
+      border-color: var(--error);
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-card">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h1>Contact Gabi Interior Studio</h1>
+        <p class="tagline">Ready to transform your space? Our Lagos-based team will contact you within 24 hours.</p>
+        
+        <div class="contact-details">
+          <div class="detail-item">
+            <span class="icon">✉️</span>
+            <span>hello@gabiinteriorstudio.com</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">📞</span>
+            <span>+234 812 345 6789</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">📍</span>
+            <span>24 Design Avenue, Lekki Phase 1, Lagos</span>
+          </div>
+        </div>
+        
+        <div class="design-gallery">
+          <img src="https://via.placeholder.com/300x150/FFD700/1A1A1A?text=Modern" alt="Modern Design">
+          <img src="https://via.placeholder.com/300x150/FFD700/1A1A1A?text=Afro-Chic" alt="Afro-Chic Design">
+          <img src="https://via.placeholder.com/300x150/FFD700/1A1A1A?text=Office" alt="Office Design">
+          <img src="https://via.placeholder.com/300x150/FFD700/1A1A1A?text=3D+Render" alt="3D Render">
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <!-- Added error messages after each field -->
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="e.g. Adaobi Nwachukwu" required>
+          <div class="error-message" id="name-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="e.g. adaobi@example.com" required>
+          <div class="error-message" id="email-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="e.g. 08123456789" required>
+          <div class="error-message" id="phone-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service" required>
+            <option value="" disabled selected>Select service</option>
+            <option>Residential Design</option>
+            <option>Commercial Spaces</option>
+            <option>Office Design</option>
+            <option>3D Design</option>
+          </select>
+          <div class="error-message" id="service-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Project Details</label>
+          <textarea id="message" placeholder="Describe your space and design needs..." required></textarea>
+          <div class="error-message" id="message-error"></div>
+        </div>
+
+        <button type="submit" class="submit-btn">Request Consultation</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      // Reset errors
+      document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+      });
+
+      let isValid = true;
+
+      // Name validation (letters only)
+      const nameInput = document.getElementById('name');
+      const nameValue = nameInput.value.trim();
+      if (!nameValue || !/^[A-Za-z\s]+$/.test(nameValue)) {
+        document.getElementById('name-error').textContent = 'Please enter a valid name (letters only)';
+        document.getElementById('name-error').style.display = 'block';
+        isValid = false;
+      }
+
+      // Email validation
+      const emailInput = document.getElementById('email');
+      const emailValue = emailInput.value.trim();
+      if (!emailValue || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+        document.getElementById('email-error').textContent = 'Please enter a valid email';
+        document.getElementById('email-error').style.display = 'block';
+        isValid = false;
+      } else {
+        emailInput.value = emailValue; // Update with trimmed value
+      }
+
+      // Nigerian phone validation
+      const phoneInput = document.getElementById('phone');
+      const phoneValue = phoneInput.value.replace(/\D/g, ''); // Remove non-digits
+      if (!phoneValue || !/^(0|234)[789][01]\d{8}$/.test(phoneValue)) {
+        document.getElementById('phone-error').textContent = 'Please enter a valid Nigerian number (e.g. 08123456789)';
+        document.getElementById('phone-error').style.display = 'block';
+        isValid = false;
+      } else {
+        // Format to 0xxxxxxxxxx
+        phoneInput.value = phoneValue.startsWith('0') ? phoneValue : '0' + phoneValue.slice(3);
+      }
+
+      // Service validation
+      const serviceInput = document.getElementById('service');
+      if (!serviceInput.value) {
+        document.getElementById('service-error').textContent = 'Please select a service';
+        document.getElementById('service-error').style.display = 'block';
+        isValid = false;
+      }
+
+      // Message validation
+      const messageInput = document.getElementById('message');
+      const messageValue = messageInput.value.trim();
+      if (!messageValue) {
+        document.getElementById('message-error').textContent = 'Please describe your project';
+        document.getElementById('message-error').style.display = 'block';
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert('Thank you! Our team will contact you within 24 hours.');
+        this.reset();
+      }
+    });
+
+    // Phone number restriction (numbers only)
+    document.getElementById('phone').addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+  </script>
+</body>
+</html>
