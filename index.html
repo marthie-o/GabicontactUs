@@ -35,10 +35,11 @@
     }
 
     .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%; /* Add this */
+    min-width: 0; /* Prevents overflow */
+}
 
     .contact-info {
       background: var(--primary);
@@ -46,6 +47,7 @@
       color: var(--secondary);
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     h1 {
@@ -70,20 +72,25 @@
 
     .design-gallery {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
       gap: 10px;
-      margin-top: 20px;
+      margin: 20px -15px;
+      width: calc(100% + 30px);
+      overflow: hidden;
     }
 
     .design-gallery img {
       width: 100%;
-      height: 120px;
-      border-radius: 6px;
-      border: 2px solid white;
+      height: 150px;
+      border-radius: 0;
+      border-right: 2px solid var(--primary);
       object-fit: cover;
+      display: block;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-
+   .design-gallery img:last-child {
+    border-right: none;
+  }
     .contact-form {
       padding: 30px;
     }
@@ -123,7 +130,6 @@
       width: 100%;
     }
 
-    /* NEW VALIDATION STYLES */
     .error-message {
       color: var(--error);
       font-size: 14px;
@@ -135,10 +141,21 @@
       border-color: var(--error);
     }
 
-    @media (max-width: 768px) {
-      .contact-container {
+   @media (max-width: 768px) {
+    .contact-container {
         grid-template-columns: 1fr;
-      }
+    }
+    
+    .design-gallery {
+        grid-template-columns: repeat(2, 1fr); 
+        margin: 20px 0;
+        width: 100%;
+    }
+    
+    .design-gallery img:nth-child(2n) {
+        border-right: none; 
+    }
+}
     }
   </style>
 </head>
@@ -165,10 +182,10 @@
         </div>
         
         <div class="design-gallery">
-          <img src="Images/image0.jpeg" alt="Office Design">
-          <img src="Images/image1.jpeg" alt="Dinning Space">
-          <img src="Images/image2.jpeg" alt="Modern Design">
-          <img src="Images/image3.jpeg" alt="3D Render">
+              <img src="Images/image0.jpeg" alt="Office Design">
+              <img src="Images/image1.jpeg" alt="Dining Space"> 
+              <img src="Images/image2.jpeg" alt="Modern Design">
+              <img src="Images/image3.jpeg" alt="3D Render">
         </div>
       </div>
 
@@ -289,3 +306,4 @@
 </body>
 
 </html>
+
